@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html ng-app="modulo5">
+<head>
+  <title>Lab16</title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" type="text/css" href="styles.css" />
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+  <script type="text/javascript" src="js/app.js"></script>
+</head>
+<body>
+  <h1>AJAX AngularJS</h1>
+
+  <div ng-controller="moduloController">
+    <table>
+       <tr>
+          <th>Name</th>
+          <th>Roll No</th>
+        <th>Percentage</th>
+       </tr>
+       <tr ng-repeat="modulo in modulos">
+          <td>{{ modulo.Name }}</td>
+          <td>{{ modulo.RollNo }}</td>
+        <td>{{ modulo.Percentage }}</td>
+       </tr>
+    </table>
+  </div>
+    
+</body>
+</html>

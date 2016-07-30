@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+        <title>refuerzo lab1a</title>
+    </head>
+    <body>
+    <h2>Forms</h2>
+<div ng-app="lab1a" ng-controller="lab1aController">
+<form name="studentForm" novalidate>
+<table border="0">
+    <!--
+     $dirty:  Será TRUE, si el usuario ya ha interactuado con el formulario.
+     $invalid: será TRUE, si por lo menos uno que contiene la forma y el control no es válido.
+     $error: Es un hash objeto, que contiene referencias a todos los controles no válidos o formas, en los que:
+
+    -->
+<tr><td>Enter first name:</td><td><input name="firstname" type="text" ng-model="firstName" required>
+   <span style="color:#ff2a25" ng-show="studentForm.firstname.$dirty && studentForm.firstname.$invalid">
+      <span ng-show="studentForm.firstname.$error.required">First Name is required.</span>
+   </span>
+</td></tr>
+<tr><td>Enter last name: </td><td><input name="lastname"  type="text" ng-model="lastName" required>
+   <span style="color:#ff2a25" ng-show="studentForm.lastname.$dirty && studentForm.lastname.$invalid">
+      <span ng-show="studentForm.lastname.$error.required">Last Name is required.</span>
+   </span>
+</td></tr>
+<tr><td>Email: </td><td><input name="email" type="email" ng-model="email" length="100" required>
+<span style="color:#ff2a25" ng-show="studentForm.email.$dirty && studentForm.email.$invalid">
+      <span ng-show="studentForm.email.$error.required">Email is required.</span>
+      <span ng-show="studentForm.email.$error.email">Invalid email address.</span>
+   </span>
+</td></tr>
+<tr><td>Age: </td><td><input name="age" type="number" ng-model="age" length="2" required>
+<span style="color:#ff2a25" ng-show="studentForm.age.$dirty && studentForm.age.$invalid">
+      <span ng-show="studentForm.age.$error.required">Age is required.</span>
+      <span ng-show="studentForm.age.$error.number">Invalid number.</span>
+   </span>
+</td></tr>
+<tr><td><button ng-click="reset()">Reset</button></td>
+    <td><button
+    ng-disabled="studentForm.firstname.$dirty && studentForm.firstname.$invalid ||
+              studentForm.lastname.$dirty && studentForm.lastname.$invalid ||
+              studentForm.email.$dirty && studentForm.email.$invalid"
+              
+    ng-click="submit()">Submit</button></td></tr>
+</table>
+</form>
+</div>
+        
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/lab1a.js"></script>
+    </body>
+</html>

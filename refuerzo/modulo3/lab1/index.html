@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html ng-app="lab1a">
+<head>
+    <title>Lab1a</title>
+    <meta charset="utf-8" />
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <script type="text/javascript" src="https://code.angularjs.org/1.5.7/angular-route.min.js"></script>
+    <script type="text/javascript" src="js/lab1a.js"></script>
+    
+</head>
+<body>
+<div ng-controller="lab1aController">
+<form name="studentForm" novalidate>
+<table border="0">
+
+   <h1>Elementos</h1>
+
+   <tr><td>Nombre:</td><td><input name="name" type="text" ng-model="name" required >
+  </td></tr>
+   <tr><td>ID:</td><td><input name="id" type="number" ng-model="id" required >
+   </td></tr>
+   <tr><td>Profesión:</td><td><input name="profession" type="text" ng-model="profession" required >
+   </td></tr>
+   <div ng-controller="ExampleController">
+  <input type="number" ng-model="salary" aria-label="salary"> <br>
+  Valor en Pesos ($): <span id="currency-default">{{salary | currency}}</span><br>
+  Valor en dolares (USD$): <span id="currency-custom">{{salary | currency:"USD$"}}</span>
+  sin fracción (0): <span id="currency-no-fractions">{{salary | currency:"USD$":0}}</span>
+</div>
+   <tr><td>Tel:</td><td><input name="phone" type="text" ng-model="phone" required >
+   </td></tr>
+<tr><td>Salario:</td><td><input type="number" ng-model="salary" aria-label="salary"> <br>
+  Valor en Pesos ($): <span id="currency-default">{{salary | currency}}</span><br>
+  Valor en dolares (USD$): <span id="currency-custom">{{salary | currency:"USD$"}}</span>
+  sin fracción (0): <span id="currency-no-fractions">{{salary | currency:"USD$":0}}</span>
+   </td></tr>
+   
+
+</body>
+
+
+
+
+
+</html>
